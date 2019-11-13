@@ -1,16 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { People } from './people.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PeopleDataService {
-  apiURL ='http://swapi.co/api/people/1';
+  apiURL ='https://swapi.co/api/people';
 
-  constructor(private _http: HttpClient) { }
+  
+  constructor(private http: HttpClient) { }
 
-  getPeople() {
-    return this._http.get<People[]>(this.apiURL)
+
+  getPeople() : Observable<People[]> {
+    console.log(People);
+    return this.http.get<People[]>(this.apiURL)
+  }
+  
+  findPeople() : void {
+    
   }
 }
