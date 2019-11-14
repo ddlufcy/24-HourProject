@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './main/main.component';
 import { FormsModule } from '@angular/forms';
-import { PeopleDataService } from './people-data.service';
+import { PeopleComponent } from './people/people.component';
+import { SelectComponent } from './select/select.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    PeopleComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +22,7 @@ import { PeopleDataService } from './people-data.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [PeopleDataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
