@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { PeopleComponent } from './people/people.component';
 import { SelectComponent } from './select/select.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
