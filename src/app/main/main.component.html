@@ -10,8 +10,11 @@
   </div>
   <br>
   <div class="search">
-    <input type="text" placeholder="search here">
+    <input type="submit" value="submit" placeholder="search here">
     <br>
-    <button (click)="getPeople()">Submit Search</button>
+    <button (click)="onFetch()">Submit Search</button>
+  </div>
+  <div>
+    {{ results }}
   </div>
 </div>

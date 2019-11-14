@@ -17,6 +17,7 @@ export class PeopleComponent implements OnInit {
     onfetch(){
   let response = this.http.get(`https://swapi.co/api/${this.selection}/${this.textInput}`);
     response.subscribe((data) =>this.swInfo.push(data))
+    console.log(response);
    }
   ngOnInit() {
    
