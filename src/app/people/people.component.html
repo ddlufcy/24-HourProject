@@ -1,1 +1,36 @@
+<div class="inputs">
+<div class="form-group">
+    <input type="text" placeholder="search here" name="search" [(ngModel)]="people">
+    <button (click)="searchPeople()" name="search">Submit Search</button>
+</div>
+<div *ngIf="peopleResponse">
+    <ul>
+        <li><span>Name : {{peopleResponse?.results[0].name}}</span></li>
+        <br>
+        <li><span>Year : {{peopleResponse?.results[0].birth_year}}</span></li>
+        <br>
+        <li><span>Height : {{peopleResponse?.results[0].height}}</span></li>
+        <br>
+        <li><span>Height : {{peopleResponse?.results[0].gender}}</span></li>
+    </ul>
+</div>
+<br>
 
+
+<div class="form-group">
+    <input type="text" placeholder="search here for starwar films" name="searchfilm" [(ngModel)]="film">
+    <button (click)="searchFilm()" name="searchfilm">Submit Search</button>
+</div>
+<div *ngIf="filmResponse">
+    <ul>
+        <li><span>Title : {{filmResponse?.results[0].title}}</span></li>
+        <br>
+        <li><span>Director : {{filmResponse?.results[0].director}}</span></li>
+        <br>
+        <li><span>Release Date : {{filmResponse?.results[0].release_date}}</span></li>
+        
+    </ul>
+</div>
+<br>
+
+</div>
