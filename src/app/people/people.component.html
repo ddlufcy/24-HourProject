@@ -1,4 +1,4 @@
-<select class="form-control select" [(ngModel)]="selection">
+<select class="form-control select" [(ngModel)]="selection" placeholder="Search Type">
   <option value="people">People</option>
   <option value="ships">Ships</option>
   <option value="films">Films</option>
@@ -6,7 +6,7 @@
 <div *ngIf="selection === 'people' ">
   <div class="form-group">
     <input type="text" placeholder="search people" name="search" [(ngModel)]="people">
-    <button (click)="searchPeople()" name="search">Submit Search</button>
+    <button (click)="searchPeople()" name="search">Search People</button>
   </div>
   <br>
   <div *ngIf="peopleResponse">
@@ -26,7 +26,7 @@
 <div *ngIf="selection === 'ships' ">
   <div class="form-group">
     <input type="text" placeholder="search ships" name="search" [(ngModel)]="ships">
-    <button (click)="searchShips()" name="search">Submit Search</button>
+    <button (click)="searchShips()" name="search">Search Ships</button>
     <br>
   </div>
   <div *ngIf="shipResponse">
@@ -47,7 +47,7 @@
 <div *ngIf="selection === 'films' ">
   <div class="form-group">
     <input type="text" placeholder="search films" name="search" [(ngModel)]="films">
-    <button (click)="searchFilms()" name="search">Submit Films</button>
+    <button (click)="searchFilms()" name="search">Search Films</button>
     <br>
   </div>
   <div *ngIf="filmResponse">
