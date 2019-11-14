@@ -1,10 +1,5 @@
-
-import { Component} from '@angular/core';
-import { OnInit } from '@angular/core' 
-
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 
 
 @Component({
@@ -13,9 +8,5 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-
-
   
-
 }
