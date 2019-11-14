@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-people',
@@ -7,15 +7,19 @@ import { HttpClient } from '@angular/common/http'
   styleUrls: ['./people.component.css']
 })
 export class PeopleComponent implements OnInit {
+  textInput = "";
+  selection = "";
 
-
-  people= [];
-
+  swInfo= [];
+  
   constructor(private http:HttpClient) { }
 
+    onfetch(){
+  let response = this.http.get(`https://swapi.co/api/${this.selection}/${this.textInput}`);
+    response.subscribe((data) =>this.swInfo.push(data))
+   }
   ngOnInit() {
-    let response = this.http.get('https://swapi.co/api/people/1/');
-    response.subscribe((data) =>this.people.push(data))
+   
   }
 
 }
