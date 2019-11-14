@@ -7,19 +7,19 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./people.component.css']
 })
 export class PeopleComponent implements OnInit {
-  textInput = "";
-  selection = "";
+  // textInput = "";
+  // selection = "";
 
-  swInfo= [];
-  
-  constructor(private http:HttpClient) { }
+  swInfo:any = [];
 
-    onfetch(){
-  let response = this.http.get(`https://swapi.co/api/${this.selection}/${this.textInput}`);
-    response.subscribe((data) =>this.swInfo.push(data))
-   }
+  constructor(private http: HttpClient) { }
+
+
+
+
   ngOnInit() {
-   
+    let response = this.http.get('https://swapi.co/api/people/1/')
+    response.subscribe((data) => this.swInfo.push(data));
   }
 
 }
