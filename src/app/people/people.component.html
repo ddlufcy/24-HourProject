@@ -1,9 +1,18 @@
-<div *ngFor="let person of swInfo">
-    <h4>{{ person.name }}</h4>
-    <h4>{{ person.gender }}</h4>
-    <h4>{{ person.age }}</h4>
-    <h4>{{ person.hair_color }}</h4>
-    <h4>{{ person.height }}</h4>
-    <h4>{{ person.mass }}</h4>
-    <h4>{{ person.skin_color }}</h4>
+
+<div class="form-group">
+  <input type="text" placeholder="search here" name="search" [(ngModel)]="people">
+  <button (click)="searchPeople()" name="search">Submit Search</button>
 </div>
+<div *ngIf="peopleResponse">
+    <ul>
+      <li><span>Name : {{peopleResponse?.results[0].name}}</span></li>
+      <br>
+      <li><span>Year : {{peopleResponse?.results[0].birth_year}}</span></li>
+      <br>
+      <li><span>Height : {{peopleResponse?.results[0].height}}</span></li>
+      <br>
+      <li><span>Height : {{peopleResponse?.results[0].gender}}</span></li>
+    </ul>
+  </div>
+<br>
+

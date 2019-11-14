@@ -17,11 +17,15 @@ export class PeopleComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
+  peopleUrl = `https://swapi.co/api/people/`
 
+  getPeople() {
+    return this.http.get(this.peopleUrl);
+  }
 
 
   ngOnInit() {
-    let response = this.http.get(`https://swapi.co/api/people/?search=${inputInfo}`)
+    let response = this.http.get(`https://swapi.co/api/people`)
     response.subscribe((data) => this.swInfo.push(data));
   }
 
