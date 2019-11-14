@@ -8,8 +8,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PeopleComponent implements OnInit {
   people: string = "";
+  ships: string= "";
+  films: string= "";
   // selection = "";
   peopleResponse: any;
+  shipResponse: any;
+  filmResponse: any;
+  selection:any = "";
   // swInfo: any = [];
 
   constructor(private http: HttpClient) { }
@@ -19,6 +24,20 @@ export class PeopleComponent implements OnInit {
       .subscribe((peopleResponse) => {
         this.peopleResponse = peopleResponse;
         console.log(this.peopleResponse)
+      })
+  }
+  searchShips() {
+    this.http.get('https://swapi.co/api/starships/?search=' + this.ships)
+      .subscribe((shipResponse) => {
+        this.shipResponse = shipResponse;
+        console.log(this.shipResponse)
+      })
+  }
+  searchFilms() {
+    this.http.get('https://swapi.co/api/films/?search=' + this.films)
+      .subscribe((filmResponse) => {
+        this.filmResponse = filmResponse;
+        console.log(this.filmResponse)
       })
   }
 

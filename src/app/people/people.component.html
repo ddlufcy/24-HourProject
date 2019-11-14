@@ -1,9 +1,15 @@
-
-<div class="form-group">
-  <input type="text" placeholder="search here" name="search" [(ngModel)]="people">
-  <button (click)="searchPeople()" name="search">Submit Search</button>
-</div>
-<div *ngIf="peopleResponse">
+<select class="form-control select" [(ngModel)]="selection">
+  <option value="people">People</option>
+  <option value="ships">Ships</option>
+  <option value="films">Films</option>
+</select>
+<div *ngIf="selection === 'people' ">
+  <div class="form-group">
+    <input type="text" placeholder="search people" name="search" [(ngModel)]="people">
+    <button (click)="searchPeople()" name="search">Submit Search</button>
+  </div>
+  <br>
+  <div *ngIf="peopleResponse">
     <ul>
       <li><span>Name : {{peopleResponse?.results[0].name}}</span></li>
       <br>
@@ -14,5 +20,47 @@
       <li><span>Height : {{peopleResponse?.results[0].gender}}</span></li>
     </ul>
   </div>
-<br>
+  <hr>
+</div>
 
+<div *ngIf="selection === 'ships' ">
+  <div class="form-group">
+    <input type="text" placeholder="search ships" name="search" [(ngModel)]="ships">
+    <button (click)="searchShips()" name="search">Submit Search</button>
+    <br>
+  </div>
+  <div *ngIf="shipResponse">
+    <ul>
+      <li><span>Comsumables: {{shipResponse?.results[0].consumables}}</span></li>
+      <br>
+      <li><span>Cost: {{shipResponse?.results[0].cost_in_credits}}</span></li>
+      <br>
+      <li><span>Crew compliment: {{shipResponse?.results[0].crew}}</span></li>
+      <br>
+      <li><span>Hyperdrive class:{{shipResponse?.results[0].hyperdrive_rating}}</span></li>
+    </ul>
+  </div>
+  <br>
+  <hr>
+</div>
+
+<div *ngIf="selection === 'films' ">
+  <div class="form-group">
+    <input type="text" placeholder="search films" name="search" [(ngModel)]="films">
+    <button (click)="searchFilms()" name="search">Submit Films</button>
+    <br>
+  </div>
+  <div *ngIf="filmResponse">
+    <ul>
+      <li><span>Title: {{filmResponse?.results[0].title}}</span></li>
+      <br>
+      <li><span>Episode Id: {{filmResponse?.results[0].episode_id}}</span></li>
+      <br>
+      <li><span>Release Date: {{filmResponse?.results[0].release_date}}</span></li>
+      <br>
+      <li><span>Producers: {{filmResponse?.results[0].producer}}</span></li>
+    </ul>
+  </div>
+  <br>
+  <hr>
+</div>
